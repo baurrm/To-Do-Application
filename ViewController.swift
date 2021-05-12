@@ -27,7 +27,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self, action: #selector(didTapAdd))
     }
-    
     @objc private func didTapAdd() {
         let alert = UIAlertController(title: "New Task", message: "Enter new to do task!", preferredStyle: .alert)
         alert.addTextField { field in
@@ -67,6 +66,16 @@ class ViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = items[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            items.remove(at: indexPath.row)
+        }
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.reloadData()
+    }
+    
     
 }
 
