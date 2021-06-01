@@ -1,3 +1,3 @@
 # To-Do-Application
-To Do App for iOS. Mobile and Multimedia Systems project class.
+Mobile and Multimedia Systems project class. To Do App for iOS.
 
